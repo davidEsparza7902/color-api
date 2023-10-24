@@ -329,3 +329,26 @@ describe ('PUT /api/colors/:id', () => {
         expect(updatedColor.year).toBe(color.year);
     },30000);
 });
+describe ('DELETE /api/colors/:id', () => {
+    beforeEach (async () => {
+        await Color.destroy({
+            where: {},
+            truncate: true
+        });
+        await Color.bulkCreate(initialColors);
+    });
+    test ('A valid color can be deleted', async () => {
+        const colors = await Color.findAll();
+        const color = colors[0];
+        await api
+            .delete(`/api/colors/${color.id}`)
+            .expect(204);
+        const deletedColor = await Color.findByPk(color.id);
+        expect(deletedColor).toBe(null);
+    },30000);
+    test ('An invalid color id returns a 404', async () => {
+        await api
+            .delete('/api/colors/999999')
+            .expect(404);
+    },30000);
+});
