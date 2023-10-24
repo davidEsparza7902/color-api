@@ -4,11 +4,13 @@
   "description": "a color API for my technical interview",
   "main": "index.js",
   "scripts": {
-    "test": "cross-env NODE_ENV=test jest --watchAll --verbose",
-    "dev": "cross-env NODE_ENV=development nodemon index.js",
     "start": "cross-env NODE_ENV=production node index.js",
+    "dev": "cross-env NODE_ENV=development nodemon index.js",
+    "test": "cross-env NODE_ENV=test jest --verbose --runInBand",
     "seed": "node src/seeders/colorSeeder.js",
-    "db:init": "node src/database/dbInit.js"
+    "db:init": "node src/database/dbInit.js",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "author": "David Esparza",
   "license": "ISC",
@@ -23,7 +25,12 @@
     "sequelize": "^6.33.0"
   },
   "devDependencies": {
+    "eslint": "^8.52.0",
     "jest": "^29.7.0",
-    "nodemon": "^3.0.1"
+    "nodemon": "^3.0.1",
+    "supertest": "^6.3.3"
+  },
+  "jest": {
+    "testEnvironment": "node"
   }
 }
