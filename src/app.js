@@ -1,10 +1,10 @@
 const cors = require('cors');
 const express = require('express');
-const { connectDB } = require('./src/database/config');
+const { connectDB } = require('./database/config');
 const app = express();
-const colorRouter = require('./src/controllers/colors');
-const logger = require('./src/utils/logger');
-const middleware = require('./src/utils/middleware');
+const colorRouter = require('./controllers/colors');
+const logger = require('./utils/logger');
+const middleware = require('./utils/middleware');
 connectDB();
 app.use(cors());
 app.use(express.json());

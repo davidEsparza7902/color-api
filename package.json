@@ -2,11 +2,11 @@
   "name": "color-api",
   "version": "1.0.0",
   "description": "a color API for my technical interview",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "test": "cross-env NODE_ENV=test jest --verbose --runInBand --detectOpenHandles",
-    "dev": "cross-env NODE_ENV=development nodemon index.js",
-    "start": "cross-env NODE_ENV=production node index.js",
+    "dev": "cross-env NODE_ENV=development nodemon src/index.js",
+    "start": "cross-env NODE_ENV=production node src/index.js",
     "db:seed": "node src/seeders/colorSeeder.js"
   },
   "author": "David Esparza",

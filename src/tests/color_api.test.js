@@ -1,7 +1,7 @@
 const supertest = require('supertest');
 const Color = require('../models/color');
 const { sequelize, connectDB } = require('../database/config');
-const app = require('../../app');
+const app = require('../app');
 const api = supertest(app);
 
 const initialColors = [
