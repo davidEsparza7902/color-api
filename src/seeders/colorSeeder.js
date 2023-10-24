@@ -1,6 +1,6 @@
 const faker = require('faker');
+const { sequelize } = require('../database/config');
 const Color = require('../models/color');
-const db = require('../database/dbConnection');
 const logger = require('../utils/logger');
 
 let numberOfRecords = 10;
@@ -27,7 +27,7 @@ const seedDatabase = async () => {
             truncate: true
         });
         logger.info('Seeding database...');
-        await db.sync({alter: true});
+        await sequelize.sync({alter: true});
         for (let i = 0; i < numberOfRecords; i++) {
             const hex = faker.internet.color().substring(1);
             const pantone = `${faker.random.number({min: 10, max: 99})}-${faker.random.number({min: 1000, max: 9999})}`;
@@ -41,9 +41,6 @@ const seedDatabase = async () => {
         logger.info(`Database seeded with ${numberOfRecords} records`);
     } catch (err) {
         logger.error(err);
-    } finally {
-        await db.close();
-        process.exit();
-    }
+    } 
 }
 seedDatabase();

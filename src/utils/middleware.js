@@ -34,8 +34,8 @@ const validateColor = async (request, response, next) => {
         }
         //year
         if (body.year) {
-            const year = Number(body.year);
-            if (isNaN(year)) {
+            // a color with a year that is not a number is not valid
+            if (typeof body.year !== 'number') {
                 throw new ValidationError('year must be a number');
             }
         }

@@ -1,7 +1,6 @@
 const colorRouter = require('express').Router();
 const js2xmlparser = require('js2xmlparser');
 const Color = require('../models/color');
-const logger = require('../utils/logger');
 const middleware = require('../utils/middleware');
 const pagination = require('../utils/pagination');
 
@@ -27,7 +26,6 @@ colorRouter.get('/', async (request, response) => {
         response.set('Content-Type', 'application/xml');
         response.status(200).send(js2xmlparser.parse('colors', responseData));
     }
-    
 });
 
 
