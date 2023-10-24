@@ -1,0 +1,29 @@
+{
+  "name": "color-api",
+  "version": "1.0.0",
+  "description": "a color API for my technical interview",
+  "main": "index.js",
+  "scripts": {
+    "test": "cross-env NODE_ENV=test jest --watchAll --verbose",
+    "dev": "cross-env NODE_ENV=development nodemon index.js",
+    "start": "cross-env NODE_ENV=production node index.js",
+    "seed": "node src/seeders/colorSeeder.js",
+    "db:init": "node src/database/dbInit.js"
+  },
+  "author": "David Esparza",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "faker": "^5.5.3",
+    "js2xmlparser": "^5.0.0",
+    "mysql2": "^3.6.2",
+    "sequelize": "^6.33.0"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "nodemon": "^3.0.1"
+  }
+}
