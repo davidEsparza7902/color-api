@@ -28,8 +28,8 @@ Con el uso de variables de entorno y el módulo dotenv, he gestionado la configu
 
 ## Ejecución del Proyecto
 
-- Ejecuta `npm start` para iniciar el servidor en modo de desarrollo.
-- Ejecuta `npm test` para ejecutar las pruebas.
+- Ejecuta `npm run dev` para iniciar el servidor en modo de desarrollo.
+- Ejecuta `npm run test` para ejecutar las pruebas.
 
 ## URL de Producción
 
